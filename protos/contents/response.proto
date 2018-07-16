@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.wanfangdata.contentmanagementgrpc";
+option objc_class_prefix = "ContentManagementServiceContent";
+
+// 获取文章详细信息列表
+message GetContentResponse {
+    repeated ContentDetail contents = 1;
+    bool no_more = 2; // 是否有下一页
+}
+
+// 文章详细信息
+message ContentDetail {
+    int32 id = 1; // id
+    string title = 2; // 标题
+    string url = 3; // url
+    string date = 4; // 发布时间
+    string excerpt = 5; // 摘要
+    map<string, string> custom_fields = 6; // 自定义信息，即拓展信息
+}

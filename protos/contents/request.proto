@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.contentmanagementgrpc.content";
+option objc_class_prefix = "ManagementServiceContent";
+
+// 获取文章详细信息列表
+message GetContentRequest {
+    // 限定标签名称（选填）
+    repeated string tags = 1;
+    // 限定分类名称（选填）
+    repeated string categories = 2;
+    // 页码，默认为1（选填）
+    int32 page = 3;
+    // 每页条数，默认为10（选填）
+    int32 page_size = 4;
+    // 限定检索词，（选填）
+    string query = 5;
+    // 检索起始时间（时间格式必须符合ISO8601标准，如:2018-01-08T15:14:16）（选填）
+    string query_start_time = 6;
+    // 检索结束时间（时间格式必须符合ISO8601标准，如:2018-01-08T15:14:16）（选填）
+    string query_end_time = 7;
+}
